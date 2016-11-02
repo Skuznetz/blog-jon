@@ -1,25 +1,41 @@
 class ArticlesController < ApplicationController
 
-def index
+	def index
 	@articles = Article.all
-end
-def show
+	end
+		def show
 	@article = Article.find(params[:id])
-end
+		end
 
 	def new # возвращает форму в браузер
 	end
-	def create
+		def create
 	@article = Article.new(article_params)
-	if @article.valid?
-		@article.save
+	
+		if @article.save
 		redirect_to @article
 
 	else
 		render action:'new'
 
 	end
-end
+		end
+
+    	def edit
+    @article = Article.find(params[:id])
+		end
+	def update
+
+		@article = Article.find(params[:id])
+
+		if @article.update(article_params)
+		redirect_to @article
+
+	else
+		render action:'edit'
+
+	end
+	end
 
 	private
 
@@ -29,7 +45,7 @@ end
 	 
 	params.require(:article).permit(:title,:text)
 	
-end
+	end
 
 
 end
