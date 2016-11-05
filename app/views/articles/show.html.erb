@@ -5,6 +5,18 @@
 <p>
 	<%= @article.text %>
 </p>
+
+<h2>Комментарий</h2>
+
+<% @article.comments.each do |comment| %>
+<p>
+<i><%= comment.author %> said:</i><br/>
+<%= comment.body %>
+</p>
+
+<% end %>
+
+<h2>add comments</h2>
 <p>
 <%=form_for([@article,@article.comments.build]) do |f| %>
 <p> 
