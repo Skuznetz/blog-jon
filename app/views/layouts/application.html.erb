@@ -7,9 +7,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
   <body>
+
+<a href="/users/sign_in">Sing IN</a> | 
+<a href="/users/sign_out" data-method="delete">Sing OUT</a>
+
+  <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
     <%= yield %>
-  </body>
+  </body> 
 </html>
